@@ -1,4 +1,5 @@
 import { simpleCRUD } from '../../@types/simpleCRUD';
+import {httpMessage, HttpCode } from '../services/httpMessage'
 import { Validator } from 'jsonschema';
 import { Collection, ObjectId } from "mongodb";
 import { Request, Response } from 'express';
@@ -17,7 +18,7 @@ export default class mongoSimpleCRUD implements simpleCRUD.IsimpleCRUD{
     public  getAll = async (_req: Request, res: Response): Promise<void> => {
         try {
             const object = (await this.Collection.find({}).toArray() as any);
-            res.status(200).send(object);
+            res.status(HttpCode.Ok).send(httpMessage(HttpCode.Ok, object));
         } catch (error) {
             res.status(500).send(error);
         }
@@ -33,12 +34,12 @@ export default class mongoSimpleCRUD implements simpleCRUD.IsimpleCRUD{
             const result = await this.Collection.insertOne(newObject);
     
             if(result.acknowledged) {
-                res.status(201).send({"newEntry":result.insertedId});
+                res.status(HttpCode.Created).send(httpMessage(HttpCode.Created, result.insertedId));
             } else {
-                res.status(500).send("Failed to create a new object.");
+                res.status(HttpCode.InternalServerError).send("Failed to create a new object.");
             };
         } catch (error) {
-            res.status(400).send(error);
+            res.status(HttpCode.BadRequest).send(httpMessage(HttpCode.BadRequest, error));
         };
     };
 
