@@ -1,12 +1,12 @@
 import { Database } from "../../@types/database"
 import * as mongoDB from "mongodb";
 
-export default class mongoDatabase implements Database.IDatabase{
+export default class mongoDatabase implements Database.ImongoDatabase{
     private client: mongoDB.MongoClient | undefined;
     private DB: mongoDB.Db;
     private db_options: mongoDB.MongoClientOptions
 
-    constructor({ DB_Config }: { DB_Config: Database.DB_Config; }) {
+    constructor({ DB_Config }: { DB_Config: Database.MongoDBConfig; }) {
        this.db_options = DB_Config.DB_OPTIONS;
        this.client = new mongoDB.MongoClient(DB_Config.DB_URL, this.db_options);
        this.DB = this.client.db(DB_Config.DB_NAME);
