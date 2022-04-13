@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 
 // Routes modules
 import router from '../route/route';
-import DB_CONF from '../../../conf/dbconf'
+import DB_CONF from '../../../conf/mongoConf'
 
 const app = express();
 

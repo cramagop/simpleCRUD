@@ -1,7 +1,7 @@
 import mongoSimpleCRUD from '../../services/mongoSimpleCRUD';
 import database from '../database/database'
 import { simpleCRUD } from '../../../@types/simpleCRUD'
-import DB_CONF from '../../../conf/dbconf'
+import DB_CONF from '../../../conf/mongoConf'
 
 const schema: simpleCRUD.jsonSchema = DB_CONF.DB_SCHEMA;
 

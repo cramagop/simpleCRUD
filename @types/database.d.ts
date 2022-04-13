@@ -1,18 +1,6 @@
 // External modules
 import * as mongoDB from 'mongodb';
-import {Pool, PoolConfig } from 'pg'
-
-const POOLCFG: PoolConfig = {
-    host: 'srv-db-postgre.postgres.database.azure.com',
-    user: 'user1',
-    password: 'ornikar',
-    max: 5,
-    database: 'persons',
-    port: 'userdb',
-    ssl: false
-}
-
-const POOL: Pool = new Pool(POOLCFG);
+import { Pool, PoolConfig } from 'pg'
 
 declare namespace Database {
     export interface ImongoDatabase {
@@ -21,8 +9,8 @@ declare namespace Database {
     }
 
     export interface IpostgreDatabase {
-        PoolCfg: PoolConfig
-        ClientPool: Pool
+        POOL: Pool
+        query(request: string, parameter: Array<any>): Promise<void>;
     }
 
     export type MongoDBConfig = {
