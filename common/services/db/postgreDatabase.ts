@@ -1,4 +1,4 @@
-import { Database } from '../../@types/database';
+import { Database } from '../../../@types/database';
 import {Pool, PoolConfig, QueryResult} from 'pg'
 
 export default class postgreDatabase implements Database.IpostgreDatabase {

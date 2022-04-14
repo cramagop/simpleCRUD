@@ -1,6 +1,6 @@
-import { simpleCRUD } from '../../@types/simpleCRUD';
-import { Database } from '../../@types/database';
-import {httpMessage, HttpCode } from '../services/httpMessage'
+import { simpleCRUD } from '../../../@types/simpleCRUD';
+import { Database } from '../../../@types/database';
+import {httpMessage, HttpCode } from '../httpMessage'
 import { Validator } from 'jsonschema';
 import { Request, Response } from 'express';
 
