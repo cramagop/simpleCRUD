@@ -13,6 +13,10 @@ declare namespace simpleCRUD {
         Schema: jsonSchema;
     }
 
+    export type postgreOptions= {
+        Schema: jsonSchema;
+    }
+
     export interface IsimpleCRUD {
         getAll(_res: Request, res: Response): Promise<void>;
         createOne(res: Request, req: Response): Promise<void>;

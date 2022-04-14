@@ -5,6 +5,8 @@ export default {
         "password": 'ornikar',
         "max": 5,
         "database": 'persons',
+        "idleTimeoutMillis": 30000,
+        "connectionTimeoutMillis": 2000,
         "port": 5432,
         "ssl": false
     },
@@ -16,7 +18,7 @@ export default {
           "age": {"type":"number"},
           'id': {"type":"string"}
         },
-        "required":["lastName", "firstName", "age"],
+        "required":["lastname", "firstname", "age"],
         "additionalProperties": false  
     }
 }
