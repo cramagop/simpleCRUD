@@ -5,11 +5,11 @@ import { Collection, ObjectId } from "mongodb";
 import { Request, Response } from 'express';
 
 export default class mongoSimpleCRUD implements simpleCRUD.IsimpleCRUD{
-    private options: simpleCRUD.simpleCRUD_Options;
+    private options: simpleCRUD.mongoOptions;
     private validator: Validator
     private Collection: Collection;
     
-    constructor({ options }: { options: simpleCRUD.simpleCRUD_Options; }) {
+    constructor({ options }: { options: simpleCRUD.mongoOptions; }) {
         this.options = options;
         this.validator = new Validator();
         this.Collection = this.options.DB.collection(options.DBCollection);

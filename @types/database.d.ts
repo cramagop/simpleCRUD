@@ -1,21 +1,22 @@
 // External modules
-import * as mongoDB from 'mongodb';
-import { Pool, PoolConfig } from 'pg'
+import {Collection, MongoClientOptions} from 'mongodb';
+import { Pool, PoolClient, PoolConfig, QueryResult } from 'pg'
 
 declare namespace Database {
     export interface ImongoDatabase {
-        collection(collectionName: string): mongoDB.Collection;
+        collection(collectionName: string): Collection;
         connect(): Promise<void>;
     }
 
     export interface IpostgreDatabase {
         POOL: Pool
-        query(request: string, parameter: Array<any>): Promise<void>;
+        getClient(): Promise<PoolClient>;
+        query(request: string, parameter?: Array<any>): Promise<QueryResult<any>>;
     }
 
     export type MongoDBConfig = {
         DB_URL: string,
-        DB_OPTIONS: mongoDB.MongoClientOptions,
+        DB_OPTIONS: MongoClientOptions,
         DB_NAME: string
     }
 }

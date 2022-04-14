@@ -1,2 +1,2 @@
 # simpleCRUD
-Simple CRUD for mongoDB
+Simple CRUD for mongoDB and postgresql

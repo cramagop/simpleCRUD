@@ -1,5 +1,5 @@
 import { Database } from '../../@types/database';
-import {Pool, PoolConfig} from 'pg'
+import {Pool, PoolConfig, QueryResult} from 'pg'
 
 export default class postgreDatabase implements Database.IpostgreDatabase {
     readonly POOL: Pool
@@ -8,7 +8,14 @@ export default class postgreDatabase implements Database.IpostgreDatabase {
         this.POOL = new Pool(poolcfg);
     }
 
-    public query = async (request: string, parameter: Array<any>): Promise<void> => {
-        this.POOL.query(request, parameter);
+    readonly getClient = async () => {
+        return await this.POOL.connect()
+    }
+
+    public query = async (request: string, parameter: Array<any>): Promise<QueryResult<any>> => {
+        const client = await this.getClient();
+        const object = await client.query(request, parameter);
+        client.release();
+        return object;
     }
 }

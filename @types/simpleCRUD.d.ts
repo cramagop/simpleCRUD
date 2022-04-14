@@ -7,8 +7,8 @@ declare namespace simpleCRUD {
 
     export type dataModel = {};
 
-    export type simpleCRUD_Options = {
-        DB: Database.IDatabase;
+    export type mongoOptions = {
+        DB: Database.ImongoDatabase;
         DBCollection: string;
         Schema: jsonSchema;
     }
