@@ -1,12 +1,6 @@
-import postgreSimpleCRUD from '../../services/postgreSimpleCRUD';
+import postgreSimpleCRUD from '../../services/crud/postgreSimpleCRUD';
 import db from '../database/dbpostgre'
 
-/*const schema: simpleCRUD.jsonSchema = DB_CONF.DB_SCHEMA;
-
-const options: simpleCRUD.mongoOptions = {
-    DB: database,
-    DBCollection: DB_CONF.DB_COLLECTION,
-    Schema: schema,
-}*/
+//const schema: simpleCRUD.jsonSchema = DB_CONF.DB_SCHEMA;
 
 export default new postgreSimpleCRUD({db});

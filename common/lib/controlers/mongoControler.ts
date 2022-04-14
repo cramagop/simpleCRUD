@@ -1,4 +1,4 @@
-import mongoSimpleCRUD from '../../services/mongoSimpleCRUD';
+import mongoSimpleCRUD from '../../services/crud/mongoSimpleCRUD';
 import database from '../database/dbmongo'
 import { simpleCRUD } from '../../../@types/simpleCRUD'
 import DB_CONF from '../../../conf/mongoConf'

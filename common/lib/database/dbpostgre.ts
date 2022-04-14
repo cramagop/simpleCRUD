@@ -1,5 +1,5 @@
 import DB from '../../../conf/postgreConf';
-import postgreDatabase from '../../services/postgreDatabase';
+import postgreDatabase from '../../services/db/postgreDatabase';
 import { PoolConfig} from 'pg';
 
 
